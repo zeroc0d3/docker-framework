@@ -23,7 +23,7 @@ services:
   mongodb:
     restart: always
     build:
-      context: ./docker/mongodb/${MYSQL_VERSION}
+      context: ./docker/mongodb/${MONGO_VERSION}
     ports:
       - "${MONGO_PORT}:27017"
     volumes:
@@ -72,18 +72,18 @@ services:
   postgresql:
     restart: always
     build:
-      context: ./docker/postgresql/${POSTGRESQL_VERSION}
+      context: ./docker/postgresql/${POSTGRES_VERSION}
     ports:
-      - "${POSTGRESQL_PORT}:5432"
+      - "${POSTGRES_PORT}:5432"
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${DATABASE_POSTGRESQL}/postgres:/var/lib/postgresql          # volume for data
     environment:
-      - POSTGRESQL_VERSION=${POSTGRESQL_VERSION}
-      - POSTGRESQL_ROOT_HOST=${POSTGRESQL_ROOT_HOST}                 # grant user hostmask (optional)
-      - POSTGRESQL_DATABASE=${POSTGRESQL_DATABASE}                   # create database (optional)
-      - POSTGRESQL_USERNAME=${POSTGRESQL_USERNAME}                   # grant user name (optional)
-      - POSTGRESQL_PASSWORD=${POSTGRESQL_PASSWORD}                   # grant user password (optional)
+      - POSTGRES_VERSION=${POSTGRES_VERSION}
+      - POSTGRES_ROOT_HOST=${POSTGRES_ROOT_HOST}                     # grant user hostmask (optional)
+      - POSTGRES_DATABASE=${POSTGRES_DATABASE}                       # create database (optional)
+      - POSTGRES_USER=${POSTGRES_USER}                               # grant user name (optional)
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}                       # grant user password (optional)
     networks:
       - backend
 
