@@ -7,7 +7,7 @@ ENV POSTGRES_ROOT_PASSWORD="root_password" \
     POSTGRES_ROOT_HOST="localhost" \
     POSTGRES_DATABASE="docker_framework" \
     POSTGRES_USER="zeroc0d3_username" \
-    POSTGRES_PASSWORD="zeroc0d3_password"
+    POSTGRES_PASSWORD="zeroc0d3_password" \
     PGDATA="/var/lib/postgresql/data"
 
 VOLUME /var/lib/postgresql/data
