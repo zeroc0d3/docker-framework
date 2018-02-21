@@ -1,0 +1,16 @@
+.env
+
+db/mariadb/**
+db/mongodb/**
+db/mysql/**
+db/postgresql/**
+
+log/mariadb/*.log
+log/mongodb/*.log
+log/mysql/*.log
+log/nginx/*.log
+log/postgresql/*.log
+
+session/adminer/**
+
+workspace/**

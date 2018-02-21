@@ -1,0 +1,12 @@
+## version 1.0-alpha
+======================
+* First release with Docker Frameworks
+* Including features for dynamic environments:
+  - Adminer
+  - MariaDB
+  - MySQL
+  - MongoDB
+  - Nginx
+  - PostgreSQL
+  - Ruby
+  - Vim
