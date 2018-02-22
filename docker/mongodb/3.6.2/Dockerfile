@@ -15,7 +15,9 @@ RUN mkdir -p /data/db /data/configdb \
 
 VOLUME /data/db /data/configdb
 
-COPY docker-entrypoint.sh /usr/local/bin/
+COPY ./docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 27017

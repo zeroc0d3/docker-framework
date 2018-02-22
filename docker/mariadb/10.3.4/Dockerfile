@@ -11,9 +11,12 @@ ENV MARIADB_ROOT_PASSWORD="gitscrum_password" \
 
 VOLUME /var/lib/mysql
 
-COPY ./docker-entrypoint.sh /usr/local/bin/
+COPY ./docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh
+
 COPY ./healthycheck.sh /healthycheck.sh
 RUN touch /healthycheck.cnf && chmod 777 /healthycheck.cnf
+
 RUN touch /mysql-init-complete && chmod 777 /mysql-init-complete
 RUN ln -sf usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 

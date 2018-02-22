@@ -12,7 +12,8 @@ ENV POSTGRES_ROOT_PASSWORD="root_password" \
 
 VOLUME /var/lib/postgresql/data
 
-COPY ./docker-entrypoint.sh /usr/local/bin/
+COPY ./docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+RUN chmod 777 /usr/local/bin/docker-entrypoint.sh
 RUN ln -sf usr/local/bin/docker-entrypoint.sh /entrypoint.sh # backwards compat
 
 ENTRYPOINT ["docker-entrypoint.sh"]
