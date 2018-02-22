@@ -11,8 +11,8 @@ DAEMON_MODE="0"                      # (0 = disable daemon mode, 1 = running dae
 USERNAME=`echo $USER`
 PATH_HOME=`echo $HOME`
 
-CONTAINER_PRODUCTION="mongodb nginx postgresql redis ruby vim"
-CONTAINER_DEVELOPMENT="mongodb nginx postgresql redis ruby vim"
+CONTAINER_PRODUCTION="adminer mongodb nginx postgresql redis ruby vim"
+CONTAINER_DEVELOPMENT="adminer mongodb nginx postgresql redis ruby vim"
 
 export DOCKER_CLIENT_TIMEOUT=300
 export COMPOSE_HTTP_TIMEOUT=300
