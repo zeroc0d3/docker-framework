@@ -1,0 +1,8 @@
+version: '3.2'
+
+services:
+    rabbitmqadmin:
+        image: bhuisgen/alpine-rabbitmqadmin
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - ./:/data

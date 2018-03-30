@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+trap 'exit 2' INT TERM
+
+echo "==> checking haproxy configuration"
+
+haproxy -c -q -f /etc/haproxy/haproxy.cfg || exit 1
+
+stats_socket=$(grep "stats socket" /etc/haproxy/haproxy.cfg|awk '{ print $3; }')
+state_file=$(grep "server-state-file" /etc/haproxy/haproxy.cfg|awk '{ print $2; }')
+
+if [ -e "${stats_socket}" ] && [ ! -z "${state_file}" ]; then
+    echo "==> saving servers state"
+
+    echo "show servers state"|socat "${stats_socket}" stdio > "${state_file}"
+fi
+
+echo "==> reloading haproxy service"
+
+s6-svc -O /etc/haproxy/services/active
+s6-svlisten1 -D /etc/haproxy/services/active s6-svc -u /etc/haproxy/services/passive
+
+active=$(readlink /etc/haproxy/services/passive)
+passive=$(readlink /etc/haproxy/services/active)
+ln -sfn "$active" /etc/haproxy/services/active
+ln -sfn "$passive" /etc/haproxy/services/passive

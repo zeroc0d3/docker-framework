@@ -1,0 +1,9 @@
+version: '3.2'
+
+services:
+    fabric:
+        image: bhuisgen/alpine-fabric
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - ./:/data
+            - $HOME/.ssh:/root/.ssh

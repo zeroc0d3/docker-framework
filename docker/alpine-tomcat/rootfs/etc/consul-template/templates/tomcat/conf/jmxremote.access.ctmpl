@@ -1,0 +1,4 @@
+{{- $tomcat_jmxusername := env "TOMCAT_JMXUSERNAME" -}}
+{{if $tomcat_jmxusername}}
+{{$tomcat_jmxusername}} readwrite
+{{end}}
