@@ -1,7 +1,7 @@
 # Docker Framework
 
 Flexibility Configuration for Docker Environment. 
-Distribution `alpine` container, using from [**Docker Alpine**](https://github.com/bhuisgen/docker-alpine).
+Distribution `alpine` docker container, use from [**Docker Alpine**](https://github.com/bhuisgen/docker-alpine).
 
 ## Environments
 You can run docker-compose for different environment with selected containers
