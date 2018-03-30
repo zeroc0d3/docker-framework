@@ -1,3 +1,9 @@
+## version 2.0
+======================
+* Change to single distribution linux (Alpine)
+* Rename running script to `run.sh`
+* Add new container Adminer
+
 ## version 1.0-alpha
 ======================
 * First release with Docker Frameworks
