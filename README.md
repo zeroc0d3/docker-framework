@@ -20,7 +20,7 @@ You can run docker-compose for different environment with selected containers
   ```
 * Change to execute script
   ```
-  chmod a+x run_docker.sh
+  chmod a+x run.sh
   ```
 * Change environment in `run_docker.sh` file
   ```
