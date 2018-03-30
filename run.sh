@@ -11,8 +11,8 @@ DAEMON_MODE="0"                      # (0 = disable daemon mode, 1 = running dae
 USERNAME=`echo $USER`
 PATH_HOME=`echo $HOME`
 
-CONTAINER_PRODUCTION="adminer ruby"
-CONTAINER_DEVELOPMENT="adminer ruby"
+CONTAINER_PRODUCTION="adminer php5 php7 phpmyadmin ruby"
+CONTAINER_DEVELOPMENT="adminer php7 ruby"
 
 export DOCKER_CLIENT_TIMEOUT=300
 export COMPOSE_HTTP_TIMEOUT=300
