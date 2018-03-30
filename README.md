@@ -5,11 +5,11 @@ Distribution `alpine` docker container, use from [**Docker Alpine**](https://git
 
 ## Concepts
 * Inspired from RoR (Ruby On Rails) and Laravel PHP Framework folder structures for configuration, container, database (db), cache and log.
-* Adopt versioning Dockerfile container
-* Adopt multi environment container (build & run)
-* Clean Code and DRY (Do not repeat your self). Reuse configurations for docker-compose.
-* Unit test and healty check docker container.
-* Available for Kubernetes combination
+* Adopt versioning Dockerfile container.
+* Adopt multi environment container (build & run).
+* Clean code and DRY (Do not Repeat Your self). Reuse configurations for docker-compose.
+* Unit test and healthy check docker container.
+* Available for Kubernetes combination.
 * Use single OS (Operating System) distribution, for easy monitoring and maintaining.
 
 ## Environments
@@ -38,11 +38,11 @@ You can run docker-compose for different environment with selected containers
 [**Wiki Documentation**](https://github.com/zeroc0d3/docker-framework/wiki)
 
 ## Roadmap
-* - [X] Multi Database Container & Multi Version Database
-* - [X] Default Configuration NGINX (staging, staging-ssl, production, production-ssl)
-* - [X] Healthy Check Docker Container
-* - [ ] Unit Test Docker Container
-* - [ ] Asynchronous / Background Job for Vulnerability Scan (Security Assessment)
+* - [X] Multi database container & multi version database.
+* - [X] Default configuration NGINX (staging, staging-ssl, production, production-ssl).
+* - [X] Healthy check docker container.
+* - [ ] Unit test docker container.
+* - [ ] Asynchronous / background job for vulnerability scan (security assessment).
 
 ## License
 [**MIT License**](https://github.com/zeroc0d3/docker-Framework/blob/master/LICENSE)
