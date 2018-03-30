@@ -3,6 +3,15 @@
 Flexibility Configuration for Docker Environment. 
 Distribution `alpine` docker container, use from [**Docker Alpine**](https://github.com/bhuisgen/docker-alpine).
 
+## Concepts
+* Inspired from RoR (Ruby On Rails) and Laravel PHP Framework folder structures for configuration, container, database (db), cache and log.
+* Adopt versioning Dockerfile container
+* Adopt multi environment container (build & run)
+* Clean Code and DRY (Do not repeat your self). Reuse configurations for docker-compose.
+* Unit test and healty check docker container.
+* Available for Kubernetes combination
+* Use single OS (Operating System) distribution, for easy monitoring and maintaining.
+
 ## Environments
 You can run docker-compose for different environment with selected containers
 * Copy / Rename `.env.example` to `.env` file
