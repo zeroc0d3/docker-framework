@@ -1,5 +1,5 @@
 upstream faye_server {
-  server dev.zeroc0d3lab.com:9292;
+  server zeroc0d3lab.localhost:9292;
 }
 
 upstream staging {
@@ -12,7 +12,7 @@ server {
   ssl_certificate     /etc/ssl/star_zeroc0d3lab_com.pem;
   ssl_certificate_key /etc/ssl/zeroc0d3lab.key;
 
-  server_name dev.zeroc0d3lab.com;
+  server_name zeroc0d3lab.localhost;
   root /home/deploy/zeroc0d3lab.dev/current/public;
 
   client_max_body_size 300M;
@@ -32,7 +32,7 @@ server {
   proxy_send_timeout    43200000;
 
   location ~ ^/(assets)/ {
-    root /home/zeroc0d3/staging/public;
+    root /home/deploy/zeroc0d3lab.dev/current/public;
     gzip_static on;
     expires 1y;
     add_header Cache-Control public;

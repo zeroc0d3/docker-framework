@@ -32,7 +32,7 @@ server {
   proxy_send_timeout    43200000;
 
   location ~ ^/(assets)/ {
-    root /home/deploy/zeroc0d3lab/public;
+    root /home/deploy/zeroc0d3lab/current/public;
     gzip_static on;
     expires 1y;
     add_header Cache-Control public;
