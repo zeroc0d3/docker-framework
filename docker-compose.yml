@@ -3,18 +3,56 @@ version: '3.2'
 services:
 
 #-------------------------------------------
-# CONSUL
+# ALPINE-BASE
+#-------------------------------------------
+  base:
+    restart: always
+    build:
+      context: ./docker/alpine-base
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - ALPINE_VERSION=${ALPINE_VERSION}
+      - S6OVERLAY_VERSION=${S6OVERLAY_VERSION}
+      - S6_BEHAVIOUR_IF_STAGE2_FAILS=${S6_BEHAVIOUR_IF_STAGE2_FAILS}
+      - LANG=${LANG}
+      - LC_ALL=${LC_ALL}
+      - LANGUAGE=${LANGUAGE}
+      - TERM=${TERM}
+
+#-------------------------------------------
+# ALPINE-BASE-CONSUL
+#-------------------------------------------
+  base-consul:
+    restart: always
+    build:
+      context: ./docker/alpine-base-consul
+    ports:
+      - "9999:9999"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - CONSULTEMPLATE_VERSION=${CONSULTEMPLATE_VERSION}
+      - CONSUL_AGENT=172.16.0.1                                     # agent hostname
+      - CONSUL_PORT=8500                                            # agent port
+      - CONSUL_TLS=0                                                # enable TLS
+      - CONSUL_SERVICENAME=base-consul                              # service name to register
+      - CONSUL_SERVICEPORT=9999                                     # service port
+
+#-------------------------------------------
+# ALPINE-CONSUL
 #-------------------------------------------
   consul:
     restart: always
-    image: bhuisgen/alpine-consul
-    # build:
-    #   context: ./docker/alpine-consul
+    build:
+      context: ./docker/core-consul
     ports:
       - "8500:8500"
     volumes:
       - /etc/localtime:/etc/localtime:ro
     environment:
+      - CONSUL_VERSION=${CONSUL_VERSION}
+      - CONSULTEMPLATE_VERSION=${CONSULTEMPLATE_VERSION}
       - CONSUL_OPTIONS=-server -bootstrap-expect 1 -client 0.0.0.0 -ui    # minimal server options
 
 #-------------------------------------------
@@ -40,7 +78,7 @@ services:
     depends_on:
       - consul
     build:
-      context: ./docker/alpine-php5/${PHP5_VERSION}
+      context: ./docker/alpine-php/${PHP5_VERSION}
     ports:
       - "${PHP5_PORT}:9000"
     volumes:
@@ -69,7 +107,7 @@ services:
     depends_on:
       - consul
     build:
-      context: ./docker/alpine-php7/${PHP7_VERSION}
+      context: ./docker/alpine-php/${PHP7_VERSION}
     ports:
       - "${PHP7_PORT}:9000"
     volumes:
@@ -135,6 +173,12 @@ networks:
 # VOLUME SETUP
 #-------------------------------------------------------------------
 volumes:
+  base:
+    driver: "local"
+  base-consul:
+    driver: "local"
+  consul:
+    driver: "local"
   adminer:
     driver: "local"
   php5:
