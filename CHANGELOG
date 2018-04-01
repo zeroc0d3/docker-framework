@@ -1,3 +1,8 @@
+## version 2.1
+======================
+* Add core container for docker-framework (base, base-consul, consul)
+* Merge container alpine-php (php5 & php7).
+
 ## version 2.0
 ======================
 * Change to single distribution linux (Alpine)
