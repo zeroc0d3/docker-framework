@@ -1,3 +1,6 @@
+## version 2.2
+* Add "$0" in run.sh script to pass all parameters
+
 ## version 2.1
 ======================
 * Add core container for docker-framework (base, base-consul, consul)
