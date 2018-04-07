@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 TITLE="DOCKER BUILDER SCRIPT"        # script name
-VER="1.4"                            # script version
+VER="1.4.1"                          # script version
 ENV="0"                              # container environment (0 = development, 1 = production)
 SKIP_BUILD="0"                       # (0 = with build process, 1 = bypass build process)
 REMOVE_CACHE="0"                     # (0 = using cache, 1 = no-cache)
@@ -130,4 +130,4 @@ main() {
 }
 
 ### START HERE ###
-main
+main $@
